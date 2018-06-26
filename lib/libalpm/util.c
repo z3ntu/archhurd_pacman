@@ -640,6 +640,9 @@ int _alpm_run_chroot(alpm_handle_t *handle, const char *cmd, char *const argv[],
 	} else {
 		/* this code runs for the parent only (wait on the child) */
 		int status;
+#if (!defined(PIPE_BUF) && defined(_POSIX_PIPE_BUF))
+#define PIPE_BUF 8*_POSIX_PIPE_BUF
+#endif
 		char obuf[PIPE_BUF]; /* writes <= PIPE_BUF are guaranteed atomic */
 		char ibuf[LINE_MAX];
 		ssize_t olen = 0, ilen = 0;
