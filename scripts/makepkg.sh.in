@@ -1406,7 +1406,7 @@ catastrophic damage to your system.")" "makepkg"
 		exit $E_ROOT
 	fi
 else
-	if [[ -z $FAKEROOTKEY ]]; then
+	if [[ -z $FAKED_MODE ]]; then
 		error "$(gettext "Do not use the %s option. This option is only for internal use by %s.")" "'-F'" "makepkg"
 		exit $E_INVALID_OPTION
 	fi
