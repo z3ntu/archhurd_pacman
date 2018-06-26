@@ -37,6 +37,8 @@ extern "C" {
 
 #include <alpm_list.h>
 
+#define PATH_MAX	4096
+
 /*
  * Arch Linux Package Management library
  */
